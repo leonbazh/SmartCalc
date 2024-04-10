@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Calculator</class>
+ <widget class="QMainWindow" name="Calculator">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>351</width>
+    <height>591</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>JetBrains Mono</family>
+    <pointsize>18</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Calculator</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0,0,0);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="Calcs">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>351</width>
+      <height>560</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QStackedWidget{
+	background-color: rgb(0, 0, 0);
+}</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="Simple" name="simplecalc">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
+    <widget class="Smart" name="smartcalc"/>
+    <widget class="QWidget" name="Finance"/>
+    <widget class="QWidget" name="Deposit"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="View">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>351</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar{
+	background-color: rgb(0, 0, 0);
+	font: 14pt &quot;Helvetica&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QMenuBar::item:selected{
+	background-color: rgb(0, 0, 0);
+
+}</string>
+   </property>
+   <widget class="QMenu" name="Choose">
+    <property name="font">
+     <font>
+      <family>Helvetica</family>
+      <pointsize>-1</pointsize>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QMenu {
+	color: white;
+	font-family: &quot;Helvetica&quot;;
+	font-size: 14px;
+	border: 20px;
+	border-radius: 35px;
+}
+QMenu:selected {
+	color: white;
+	background-color: rgb(59,59,59);
+	font-size: 14px;
+	border: 20px;
+	border-radius: 35px;
+}
+QMenu:pressed {
+	color: white;
+	background-color: rgb(40,40,40);
+	font-size: 14px;
+	border: 20px;
+	border-radius: 35px;
+}
+
+QAction{
+	font-size: 20px;
+	border: 20px;
+	border-radius: 35px;
+}</string>
+    </property>
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionSimple"/>
+    <addaction name="actionSmart"/>
+    <addaction name="actionFinance"/>
+    <addaction name="actionDeposit"/>
+   </widget>
+   <addaction name="Choose"/>
+  </widget>
+  <action name="actionSimple">
+   <property name="icon">
+    <iconset theme="accessories-calculator"/>
+   </property>
+   <property name="text">
+    <string>Simple</string>
+   </property>
+  </action>
+  <action name="actionFinance">
+   <property name="text">
+    <string>Finance</string>
+   </property>
+  </action>
+  <action name="actionSmart">
+   <property name="text">
+    <string>Smart</string>
+   </property>
+  </action>
+  <action name="actionDeposit">
+   <property name="text">
+    <string>Deposit</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Simple</class>
+   <extends>QWidget</extends>
+   <header>simple.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Smart</class>
+   <extends>QWidget</extends>
+   <header>smart.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
