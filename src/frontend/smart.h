@@ -38,6 +38,8 @@ private slots:
     void on_back_clicked();
     void on_result_clicked();
     void on_graph_clicked();
+    void on_sqrt_clicked();
+    void on_pow_clicked();
 };
 
 #endif // SMART_H
