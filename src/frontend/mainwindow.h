@@ -24,7 +24,7 @@ private:
 private slots:
     void on_actionSimple_triggered();
     void on_actionSmart_triggered();
-    void on_actionFinance_triggered();
+    void on_actionCredit_triggered();
     void on_actionDeposit_triggered();
 
 };

@@ -15,6 +15,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     simple.cpp \
+    ../backend/s21_findep.c \
     ../backend/s21_calc.c \
     smart.cpp \
     qcustomplot.cpp
@@ -24,6 +25,7 @@ HEADERS += \
     graph.h \
     mainwindow.h \
     simple.h \
+    ../backend/s21_findep.h \
     ../backend/s21_calc.h \
     smart.h \
     qcustomplot.h

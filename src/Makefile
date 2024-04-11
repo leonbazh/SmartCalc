@@ -1,4 +1,3 @@
-.PHONY: all test s21_matrix.a clang clean cppcheck rebuild
 WWW = -Wall -Wextra -Werror -std=c11
 OS=$(shell uname -s)
 LINUX=-lsubunit -lrt
@@ -10,31 +9,42 @@ else
 	OPEN = open
 endif
 
-all:test
+all: install gcov_report
 
-test: clean_test
-ifeq ($(OS), Darwin)
-	gcc -fprofile-arcs -ftest-coverage -pedantic -g backend/s21_calc.c backend/test.c -o unit_test $(LIBS) 
+install: test uninstall
+	mkdir build
+	cp -rf frontend/* build
+	cd build && qmake frontend.pro
+	make -C build
+	cd build && make clean
+ifeq ($(OS), Linux)
+	./build/frontend
 else
-	gcc -fprofile-arcs -ftest-coverage -pedantic -g backend/s21_calc.c backend/test.c -o unit_test $(LIBS) $(LINUX)
+	open ./build/frontend.app/Contents/MacOS/frontend
+endif
+
+uninstall:
+	rm -rf build*
+	make clean
+
+test:
+ifeq ($(OS), Darwin)
+	gcc -fprofile-arcs -ftest-coverage -pedantic -g backend/s21_calc.c backend/s21_calctest.c -o unit_test $(LIBS) 
+else
+	gcc -fprofile-arcs -ftest-coverage -pedantic -g backend/s21_calc.c backend/s21_calctest.c -o unit_test $(LIBS) $(LINUX)
 endif
 	./unit_test
 
-gcov_report: clean_test s21_matrix.a
+gcov_report:
 ifeq ($(OS), Darwin)
-	gcc $(WWW) -fprofile-arcs -ftest-coverage -pedantic -g *.c tests/*.c s21_matrix.a -o unit_test $(LIBS) 
+	gcc $(WWW) -fprofile-arcs -ftest-coverage -pedantic -g backend/s21_calc.c backend/s21_calctest.c -o unit_test $(LIBS) 
 else
-	gcc  $(WWW) -fprofile-arcs -ftest-coverage -pedantic  -g *.c tests/*.c s21_matrix.a -o unit_test $(LIBS) $(LINUX)
+	gcc  $(WWW) -fprofile-arcs -ftest-coverage -pedantic  -g backend/s21_calc.c backend/s21_calctest.c -o unit_test $(LIBS) $(LINUX)
 endif
 	./unit_test
-	lcov -t "unit_test" -o test.info -c -d .
-	genhtml -o report test.info
-	$(OPEN) report/index.html
-
-s21_matrix.a:
-	gcc -c s21_*.c
-	ar rcs s21_matrix.a s21_*.o
-	ranlib s21_matrix.a
+	lcov -t "test" -o test.info -c -d .  
+	genhtml test.info --output-directory report
+	open ./report/index.html
 
 clang:
 	clang-format -i *.c

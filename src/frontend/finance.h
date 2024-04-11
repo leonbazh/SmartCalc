@@ -3,20 +3,29 @@
 
 #include <QWidget>
 
-namespace Ui {
-class finance;
+#include "ui_finance.h"
+
+extern "C"{
+    #include "../backend/s21_findep.h"
 }
 
-class finance : public QWidget
+namespace Ui {
+class Credit : public Ui_finance{};
+}
+
+class Credit : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit finance(QWidget *parent = nullptr);
-    ~finance();
+    explicit Credit(QWidget *parent = nullptr);
+    ~Credit();
 
 private:
-    Ui::finance *ui;
+    Ui::Credit *ui;
+
+private slots:
+    void calculate();
 };
 
 #endif // FINANCE_H

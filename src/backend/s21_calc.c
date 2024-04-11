@@ -79,7 +79,6 @@ int count(char *input, int index, numbers *stack) {
   if (input[index] == '*')
     num_push(num_pop(stack) * num_pop(stack), stack);
   if (input[index] == '-') {
-    printf("yes");
     double num = num_pop(stack);
     num_push(num_pop(stack) - num, stack);
   }
@@ -136,20 +135,26 @@ int priority(char input) {
   }
   switch (input) {
   case 'y':
-    p++;
+    p = 5;
+    break;
   case '^':
-    p++;
+    p = 4;
+    break;
   case '*':
   case '/':
   case '%':
-    p++;
+    p = 3;
+    break;
   case '+':
   case '-':
-    p++;
+    p = 2;
+    break;
   case '(':
   case ')':
-    p++;
+    p = 1;
     break;
+  default:
+    p = 0;
   }
   return p;
 }
@@ -209,7 +214,6 @@ int funcbracket_check(char *input) {
   int flag = OK;
   char *functions[9] = {"sin",  "cos",  "tan", "asin", "acos",
                         "atan", "sqrt", "log", "ln"};
-  char *start_functions = "sctal";
   for (int i = 0; i < 9 && flag == OK; i++) {
     for (int j = 0; j < (int)strlen(input) && flag == OK; j++)
       if (strncmp(input + j, functions[i], strlen(functions[i])) == 0) {
@@ -242,9 +246,7 @@ int validate(char *input, char *str) {
     flag = 0;
     if (strchr(start_functions, input[i])) {
       for (int j = 0; j < 10 && flag == 0; j++) {
-        if (functions[j] == "error") {
-          flag = 2;
-        } else if (!strncmp(input + i, functions[j], strlen(functions[j]))) {
+        if (!strncmp(input + i, functions[j], strlen(functions[j]))) {
           temp[ok++] = abbr_functions[j];
           i += (int)strlen(functions[j]);
           flag = 1;

@@ -956,7 +956,7 @@ QPushButton:hover{
 }</string>
    </property>
    <property name="text">
-    <string> xyₘₐₓ</string>
+    <string> Oxy</string>
    </property>
   </widget>
   <widget class="QDoubleSpinBox" name="xymax">

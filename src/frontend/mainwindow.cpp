@@ -21,7 +21,7 @@ void MainWindow::on_actionSmart_triggered(){
     ui->Calcs->setCurrentIndex(1);
 }
 
-void MainWindow::on_actionFinance_triggered(){
+void MainWindow::on_actionCredit_triggered(){
     ui->Calcs->setCurrentIndex(2);
 }
 
