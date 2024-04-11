@@ -28,6 +28,8 @@ Smart::Smart(QWidget *parent)
     connect(ui->asin, SIGNAL(clicked()), this, SLOT(PushButtonFunc()));
     connect(ui->acos, SIGNAL(clicked()), this, SLOT(PushButtonFunc()));
     connect(ui->atan, SIGNAL(clicked()), this, SLOT(PushButtonFunc()));
+    connect(ui->log, SIGNAL(clicked()), this, SLOT(PushButtonFunc()));
+    connect(ui->ln, SIGNAL(clicked()), this, SLOT(PushButtonFunc()));
 }
 
 Smart::~Smart()
@@ -43,6 +45,14 @@ void Smart::PushButton(){
 void Smart::PushButtonFunc(){
     QPushButton* button = (QPushButton*)sender();
     ui->lineEdit->setText(ui->lineEdit->text()+button->text() + "()");
+}
+
+void Smart::on_sqrt_clicked(){
+    ui->lineEdit->setText(ui->lineEdit->text() + "sqrt()");
+}
+
+void Smart::on_pow_clicked(){
+    ui->lineEdit->setText(ui->lineEdit->text() + "^2");
 }
 
 void Smart::on_div_clicked(){
