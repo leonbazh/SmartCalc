@@ -41,7 +41,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="Simple" name="simplecalc">
      <property name="styleSheet">
@@ -50,7 +50,7 @@
     </widget>
     <widget class="Smart" name="smartcalc"/>
     <widget class="Credit" name="creditcalc"/>
-    <widget class="QWidget" name="Deposit"/>
+    <widget class="Deposit" name="depositcalc"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="View">
@@ -164,6 +164,12 @@ QAction{
    <class>Credit</class>
    <extends>QWidget</extends>
    <header>finance.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Deposit</class>
+   <extends>QWidget</extends>
+   <header>deposit.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

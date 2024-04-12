@@ -3,12 +3,6 @@ OS=$(shell uname -s)
 LINUX=-lsubunit -lrt
 LIBS=-lcheck -lm -lpthread
 
-ifeq ($(OS), Linux)
-	OPEN = wslview
-else
-	OPEN = open
-endif
-
 all: install gcov_report
 
 install: test uninstall

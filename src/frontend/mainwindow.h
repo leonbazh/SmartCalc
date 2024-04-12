@@ -9,23 +9,20 @@ class Calculator;
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-
+  MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
 
 private:
-    Ui::Calculator *ui;
+  Ui::Calculator *ui;
 
 private slots:
-    void on_actionSimple_triggered();
-    void on_actionSmart_triggered();
-    void on_actionCredit_triggered();
-    void on_actionDeposit_triggered();
-
+  void on_actionSimple_triggered();
+  void on_actionSmart_triggered();
+  void on_actionCredit_triggered();
+  void on_actionDeposit_triggered();
 };
 #endif // MAINWINDOW_H

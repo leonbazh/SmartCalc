@@ -2,29 +2,16 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::Calculator)
-{
-    ui->setupUi(this);
+    : QMainWindow(parent), ui(new Ui::Calculator) {
+  ui->setupUi(this);
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+MainWindow::~MainWindow() { delete ui; }
 
-void MainWindow::on_actionSimple_triggered(){
-    ui->Calcs->setCurrentIndex(0);
-}
+void MainWindow::on_actionSimple_triggered() { ui->Calcs->setCurrentIndex(0); }
 
-void MainWindow::on_actionSmart_triggered(){
-    ui->Calcs->setCurrentIndex(1);
-}
+void MainWindow::on_actionSmart_triggered() { ui->Calcs->setCurrentIndex(1); }
 
-void MainWindow::on_actionCredit_triggered(){
-    ui->Calcs->setCurrentIndex(2);
-}
+void MainWindow::on_actionCredit_triggered() { ui->Calcs->setCurrentIndex(2); }
 
-void MainWindow::on_actionDeposit_triggered(){
-    ui->Calcs->setCurrentIndex(3);
-}
+void MainWindow::on_actionDeposit_triggered() { ui->Calcs->setCurrentIndex(3); }

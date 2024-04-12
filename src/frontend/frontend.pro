@@ -10,6 +10,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    deposit.cpp \
     finance.cpp \
     graph.cpp \
     main.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
     qcustomplot.cpp
 
 HEADERS += \
+    deposit.h \
     finance.h \
     graph.h \
     mainwindow.h \
@@ -31,6 +33,7 @@ HEADERS += \
     qcustomplot.h
 
 FORMS += \
+    deposit.ui \
     finance.ui \
     graph.ui \
     mainwindow.ui \
